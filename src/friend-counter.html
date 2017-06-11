@@ -1,9 +1,12 @@
+
+
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="bower_components/polymer-redux/polymer-redux.html">
 <link rel="import" href="redux-store.html">
+
 <link rel="import" href="shared-styles.html">
 
-<dom-module id="my-view1">
+<dom-module id="friend-counter">
   <template>
 
   <style include="shared-styles">
@@ -14,35 +17,14 @@
     }
   </style>
 
-  <div class="card">
     <h3>You have [[friendCount]] friends</h3>
-  </div>
-
 
   </template>
 
+
   <script>
-
-  Polymer({
-    is: 'friend-counter',
-    behaviors: [ ReduxBehavior ],
-    properties: {
-      friends: {
-        type: Array,
-        statePath: 'friends'
-      },
-      friendCount: {
-        type: Number,
-        computed: 'computeFriendCount(friends)'
-      }
-    },
-    computeFriendCount: function(friends) {
-      return friends.length;
-    }
-  });
-
     class MyView1 extends Polymer.Element {
-      static get is() { return 'my-view1'; }
+      static get is() { return 'friend-counter'; }
     }
 
     window.customElements.define(MyView1.is, MyView1);
